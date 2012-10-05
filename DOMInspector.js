@@ -35,7 +35,9 @@
 		addEvents(customCallback);
 	}
 	var addEvents = function(customCallback) {
-		callback = customCallback;
+		if(typeof customCallback === 'function') {
+			callback = customCallback;
+		}
 		document.addEventListener('mouseover', hoverIn, this);
 		document.addEventListener('mouseout', hoverOut, this);
 		document.addEventListener('click', selectorClick, this);
